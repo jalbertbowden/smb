@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+    <link rel="shortcut icon" href="http://dev.bowdenweb.com/a/i/dev/8-bit-jolly-roger-favicon.ico" />
+    <link href="http://dev.bowdenweb.com/assets/css/sandbox.css" rel="stylesheet" type="text/css" media="screen, projection" />
+    <script src="http://dev.bowdenweb.com/a/js/html5.js"></script>
+<!-- ☠☠☠☠☠☠ be thou warned: Open Source....or Die...  ☠☠☠☠☠☠☠☠☠☠☠ -->
+<link rel="stylesheet" href="http://dev.bowdenweb.com/nes/super-mario-brothers/css/nes.smb.css" type="text/css" charset="utf-8" />
+<style>
+.coinlayersx,.coinlayersy{margin:10px auto; outline:1px solid #000}
+.coinlayersx{height:140px; width:400px}
+.coinlayersy{height:14px; width:40px}
+.floatme{float:left; margin:0; position:relative}
+.coinlayersx .coinlayer{width:100px; height:140px}
+.coinlayersy .coinlayer{width:10px; height:14px}
+/** 
+layer 01 
+coin body background-color:#f90
+coin inner shadow background-color:#f60
+coin outer shadow background-color:#09f
+
+
+layer 02 
+coin body background-color:#f60
+
+layer 03
+coin body background-color:#c00
+**/
+.coinlayer01{}
+.coinlayer02,.coinlayer03,.coinlayer04{}
+.coinlayer b{position:absolute}
+.coinlayer b:before,.coinlayer b:after{position:absolute; content:""}
+.cn01,.cn03{top:0}
+.coinlayersx .cn01,.coinlayersx .cn02{width:40px; left:20px; height:10px}
+.coinlayersy .cn01,.coinlayersy .cn02{width:4px; left:2px; height:1px}
+.cn01:before,.cn02:before{width:150%; left:-25%; height:200%}
+.cn01:before{top:100%}
+.cn01:after{top:300%}
+.coinlayersx .cn01:after{width:80px; left:-20px; height:80px}
+.coinlayersy .cn01:after{width:8px; left:-2px; height:8px}
+.coinlayer01 .cn01,.coinlayer01 .cn01:before,.coinlayer01 .cn01:after,.coinlayer01 .cn02,.coinlayer01 .cn02:before{background-color:#f90}
+.coinlayer02 .cn01,.coinlayer02 .cn01:before,.coinlayer02 .cn01:after,.coinlayer02 .cn02,.coinlayer02 .cn02:before{background-color:#f60}
+.coinlayer03 .cn01,.coinlayer03 .cn01:before,.coinlayer03 .cn01:after,.coinlayer03 .cn02,.coinlayer03 .cn02:before{background-color:#c00}
+
+
+.cn02,.cn04{bottom:0}
+.cn02:before{top:-200%}
+
+.coinlayer01 .cn03,.coinlayer01 .cn03:before,.coinlayer01 .cn03:after,.coinlayer01 .cn04,.coinlayer01 .cn04:before,.coinlayer01 .cn04:after,.coinlayer02 .cn03,.coinlayer02 .cn03:before,.coinlayer02 .cn03:after,.coinlayer02 .cn04,.coinlayer02 .cn04:before,.coinlayer02 .cn04:after,.coinlayer03 .cn03,.coinlayer03 .cn03:before,.coinlayer03 .cn03:after,.coinlayer03 .cn04,.coinlayer03 .cn04:before,.coinlayer03 .cn04:after{background-color:#09f}
+.coinlayersx .cn03,.coinlayersx .cn04{width:20px; right:20px; height:10px}
+.coinlayersy .cn03,.coinlayersy .cn04{width:2px; right:2px; height:1px}
+.cn03:before,.cn04:before{left:50%; height:200%; width:100%}
+.cn03:before{top:100%}
+.cn03:after{left:100%; top:300%; height:800%; width:100%}
+
+.cn04:before{top:-200%; left:50%; height:200%; width:100%}
+.cn04:after{width:100%; height:100%; top:-200%; left:-150%}
+.cn05{}
+.coinlayer01 .cn05,.coinlayer01 .cn05:before,.coinlayer02 .cn05,.coinlayer02 .cn05:before,.coinlayer03 .cn05,.coinlayer03 .cn05:before{background-color:#f60}
+.coinlayer01 .cn05:after,.coinlayer02 .cn05:after,.coinlayer03 .cn05:after{background-color:#09f}
+.coinlayersx .cn05{width:20px; top:20px; left:30px; height:10px}
+.coinlayersy .cn05{width:2px; top:2px; left:3px; height:1px}
+.cn05:before,.cn05:after{width:50%; top:100%; height:800%}
+.cn05:before{left:-50%}
+.cn05:after{right:-50%}
+
+
+
+.coinlayersxxx{position:relative; width:100px; height:140px; margin:10px auto}
+.coinlayersxxx b{position:absolute}
+.coinlayersxxx b:before,.coinlayersxxx b:after{position:absolute; content:""}
+.coinlayersxxx .cn01,.coinlayersxxx .cn02{width:40px; left:20px; height:10px}
+.coinlayersxxx  .cn01:after{width:80px; left:-20px; height:80px}
+
+.coinlayersxxx .cn01,.coinlayersxxx .cn01:before,.coinlayersxxx .cn01:after,.coinlayersxxx .cn02,.coinlayersxxx .cn02:before{background-color:#f90}
+
+
+.coinlayersxxx .cn05,.coinlayersxxx .cn05:before{background-color:#f60}
+.coinlayersxxx  .cn05:after{background-color:#09f}
+
+.coinlayersxxx .cn03,.coinlayersxxx .cn03:before,.coinlayersxxx .cn03:after,.coinlayersxxx .cn04,.coinlayersxxx .cn04:before,.coinlayersxxx .cn04:after{background-color:#09f}
+.coinlayersxxx .cn03,.coinlayersxxx .cn04{width:20px; right:20px; height:10px}
+
+
+.coinlayersxxx u,.coinlayersxxx div,.coinlayersxxx i{position:absolute}
+.coin0101,.coin0106{width:40px; left:20px; height:10px}
+.coin0101{top:0}
+.coin0102,.coin0107{width:60px; left:10px; height:20px}
+.coin0102{top:10px}
+.coin0103{top:30px; height:80px; width:20px}
+.coin0104{top:20px; width:20px; left:30px; height:10px}
+.coin0105{top:30px; width:10px; left:20px; height:80px}
+
+.coin0106{bottom:0}
+.coin0107{bottom:10px}
+.coin0108{bottom:20px; width:20px; left:30px; height:10px; background-color:#09f}
+.coin0108:before,.coin0108:after{position:absolute; content:""; width:100%; background-color:#09f}
+.coin0108:before{height:100%; left:150%; top:200%}
+.coin0108:after{height:200%; left:200%; top:0}
+
+.coin0109{width:10px; height:80px; left:50px; top:30px; background-color:#09f}
+.coin0109:before{position:absolute; content:""; width:200%; left:300%; top:0; height:100%; background-color:#09f}
+
+.coin0110{width:20px; height:10px; right:20px; top:0; background-color:#09f}
+.coin0110:before{position:absolute; content:""; width:100%; left:50%; top:100%; height:200%; background-color:#09f}
+
+.coin0103a{left:0}
+.coin0103b{left:30px}
+.coin0103c{left:60px}
+
+
+.coincolor01{background-color:#f90}
+.coincolor02{background-color:#f60}
+.coincolor03{background-color:#09f}
+
+.coincolor01{background-color:#f90; 
+	-webkit-animation-name:coincolor01;
+	-webkit-animation-duration: 0.75s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-iteration-count:infinite;	
+	-webkit-animation-direction: normal;
+	-webkit-animation-delay: 0;
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes 'coincolor01' {
+  0% {background-color:#f90; 
+  }
+  33% {background-color:#f60; 
+  }
+  66% {background-color:#c00; 
+  }
+  100% {background-color:#f60;
+  }
+}
+</style>
+    <script></script>
+  </head>
+<!-- &#187; raquo; &#171; laquo;  &#33; = !, &#34; = ", &#35; = #, &#36; = $, &#37; = %, &#38; = &, &#39; = ', &#40; = (, &#41; = ), &#42; = *, &#43; = +, &#44; = ,, &#45; = -, &#46; = ., &#47; = /, &#58; = :, &#59; = ;, &#60; = <, &#61; = =, &#62; = >, &#63; = ?, &#64; = @, &#91; = [, &#92; = \, &#93; ], &#95; = _, &#123; = {, &#124; = |, &#125; = } -->
+<!-- &#64; = @ (commercial at); &#65131; small commercial at -->
+  <body>
+    <div class="content">
+      <img src="an_coin.gif" alt="Animated Coin" />
+
+<div class="coinlayers coinlayersx">
+  <div class="coinlayer coinlayer01 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer02 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer03 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer02 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+</div>
+<hr style="display:block; float:none; clear:left; margin:20px auto;" />
+<div class="coinlayers coinlayersy">
+  <div class="coinlayer coinlayer01 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer02 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer03 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+  <div class="coinlayer coinlayer02 floatme"><b class="cn01"></b><b class="cn02"></b><b class="cn03"></b><b class="cn04"></b><b class="cn05"></b></div>
+</div>
+<hr style="display:block; float:none; clear:left; margin:20px auto;" />
+  <div class="coinlayersx coinlayersxxx"><i class="coincolor01 coin0101"></i><i class="coincolor01 coin0102"></i><i class="coincolor01 coin0103 coin0103a"></i><i class="coincolor01 coin0103 coin0103b"></i><i class="coincolor01 coin0103 coin0103c"></i><i class="coincolor02 coin0104"></i><i class="coincolor02 coin0105"></i><i class="coincolor01 coin0106"></i><i class="coincolor01 coin0107"></i><i class="coin0108"></i><i class="coin0109"></i><i class="coin0110"></i></div>
+    </div> <!-- close.content -->
+</body>
+</html>
